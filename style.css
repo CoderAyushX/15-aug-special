@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+
+  background: #000;
+  overflow: hidden;
+}
+.flag {
+  margin: 10px auto ;
+  position: relative;
+  width: 500px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-reflect: below 15px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+}
+.flag::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  filter: url(#wavy);
+}
+.flag::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-top: 100px solid #ff9933;
+  border-bottom: 100px solid #138808;
+  box-sizing: border-box;
+  filter: url(#wavy);
+}
+
+.flag img {
+  position: relative;
+  max-width: 100px;
+  z-index: 100;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+svg {
+  width: 0;
+  height: 0;
+}
+.creator{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    
+}
+h2 {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  margin: auto;
+  font-size: 42px;
+  width: 320px;
+  color: #222;
+}
+
+h2::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #fff;
+  width: 350px;
+  overflow: hidden;
+  border-right: 4px solid #fff;
+  white-space: nowrap;
+  animation: textanimation 8s linear infinite;
+  filter: drop-shadow(0 0 20px #fff) ;
+}
+
+@keyframes textanimation {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+    .flag {
+      
+        width: 90vw;
+        height: 30vh
+
+      }
+
+      .flag::before {
+
+        border-top:  10vh solid #ff9933;
+        border-bottom: 10vh solid #138808;
+    
+      }
+      .flag img{
+        margin-top: 8px;
+        width: 60px;
+      }
+
+      h2 {
+    
+        font-size: 32px;
+        width: 250px;
+
+      }
+  }
